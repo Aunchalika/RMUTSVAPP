@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import android.widget.RadioGroup;
 
 import app.rmutsv.sampuriwat.rmutsvservice.MainActivity;
 import app.rmutsv.sampuriwat.rmutsvservice.R;
+import app.rmutsv.sampuriwat.rmutsvservice.utility.MyConstant;
+import app.rmutsv.sampuriwat.rmutsvservice.utility.UploadNewUser;
 import app.rmutsv.sampuriwat.rmutsvservice.utility.myAlert;
 
 /**
@@ -85,13 +88,29 @@ public class RegisterFragment extends Fragment {
 
                 } else {
 //                    Choose Choice
-
+                    uploadUserToServer();
                 }
-
-
 
             }// onClick
         });
+    }
+
+    private void uploadUserToServer() {
+
+        String tag = "8novV1";
+        try {
+            MyConstant myConstant = new MyConstant();
+            UploadNewUser uploadNewUser = new UploadNewUser(getActivity());
+            uploadNewUser.execute(nameString, categoryString,
+                    userString, passwordString, myConstant.getUrlPostData());
+            String result = uploadNewUser.get();
+            Log.d(tag, "Result ==> " + result);
+
+
+        } catch (Exception e) {
+            Log.d(tag, "e ==>" + e.toString());
+        }
+
     }
 
     private void toolbarController() {
