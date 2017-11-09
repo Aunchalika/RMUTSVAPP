@@ -2,6 +2,7 @@ package app.rmutsv.sampuriwat.rmutsvservice.fragment;
 /**
  * Created by samPuriwat on 6/11/2560.
  */
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,7 +20,9 @@ import org.json.JSONObject;
 
 import java.util.zip.Inflater;
 
+import app.rmutsv.sampuriwat.rmutsvservice.MyServiceActivity;
 import app.rmutsv.sampuriwat.rmutsvservice.R;
+import app.rmutsv.sampuriwat.rmutsvservice.SalerActivity;
 import app.rmutsv.sampuriwat.rmutsvservice.utility.GetAllData;
 import app.rmutsv.sampuriwat.rmutsvservice.utility.MyConstant;
 import app.rmutsv.sampuriwat.rmutsvservice.utility.myAlert;
@@ -95,6 +98,22 @@ public class MainFragment extends Fragment {
             } else if (passwordString.equals(userStrings1[4])) {
 
                 Toast.makeText(getActivity(),"Welcome "+userStrings1[1], Toast.LENGTH_SHORT).show();
+
+//                if (userStrings1[2].equals("Saler")) {
+//                    //Saler
+//                    Intent intent = new Intent(getActivity(), SalerActivity.class);
+//                    intent.putExtra("Login", userStrings1);
+//                    getActivity().startActivity(intent);
+//
+//
+//                } else {
+//                    //Buyer
+//                }
+                Intent intent = new Intent(getActivity(), MyServiceActivity.class);
+                intent.putExtra("Login", userStrings1);
+                getActivity().startActivity(intent);
+                // close current activity
+                getActivity().finish();
 
             } else {
 

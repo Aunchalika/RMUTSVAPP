@@ -7,7 +7,7 @@ package app.rmutsv.sampuriwat.rmutsvservice.utility;
 public class MyConstant {
     private String urlPostData = "http://androidthai.in.th/rmuts/addDataMaster.php";
 
-    private String urlGetAllUser = "http://androidthai.in.th/rmuts/getAllDataSAM.php";
+    private String urlGetAllUser = "http://androidthai.in.th/rmuts/getAllDataMaster.php";
 
     public String getUrlGetAllUser() {
         return urlGetAllUser;

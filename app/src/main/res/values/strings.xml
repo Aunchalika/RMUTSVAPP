@@ -6,6 +6,7 @@
     <string name="register">New Register</string>
     <string name="name">Name :</string>
     <string name="confirm_password">Confirm Password :</string>
+    <string name="title_activity_saler">Saler</string>
 
 
 </resources>
